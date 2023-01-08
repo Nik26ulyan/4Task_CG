@@ -6,8 +6,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.cgvsu.GuiController">
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cgvsu.GuiController">
     <MenuBar>
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#onOpenModelMenuItemClick" text="Load Model">
@@ -66,4 +67,8 @@
     </MenuBar>
 
     <Canvas fx:id="canvas" height="870" width="1600" AnchorPane.topAnchor="30.0" />
+    <Text fx:id="camPosXTx" layoutX="1426.0" layoutY="768.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x:" />
+    <Text fx:id="camPosYTx" layoutX="1426.0" layoutY="791.0" strokeType="OUTSIDE" strokeWidth="0.0" text="y:" />
+    <Text fx:id="camPosZTx" layoutX="1426.0" layoutY="818.0" strokeType="OUTSIDE" strokeWidth="0.0" text="z:" />
+    <Text layoutX="1430.0" layoutY="745.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Camera position:" />
 </AnchorPane>

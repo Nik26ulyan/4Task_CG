@@ -8,11 +8,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,6 +32,9 @@ import com.cgvsu.render_engine.Camera;
 public class GuiController {
 
     final private float TRANSLATION = 2F;
+    public Text camPosXTx;
+    public Text camPosYTx;
+    public Text camPosZTx;
     private List<Scene> scenes = new ArrayList<>();
     private int currSceneId = -1;
 
@@ -68,6 +74,7 @@ public class GuiController {
                 scene.setHeight((int) height);
                 scene.setWight((int) width);
                 RenderEngine.render(canvas.getGraphicsContext2D(), scene);
+
             }
 
         });
@@ -97,14 +104,13 @@ public class GuiController {
                     new Vector3f(0, 0, 0),
                     1.0F, 1, 0.01F, 100)));
             currSceneId++;
-//            mesh = ObjReader.read(fileContent);
         } catch (IOException exception) {
 
         }
     }
 
     @FXML
-    private void openNextScene(ActionEvent actionEvent) {
+    public void openNextScene(ActionEvent actionEvent) {
         if (currSceneId < scenes.size() - 1) {
             currSceneId++;
         }
@@ -131,31 +137,55 @@ public class GuiController {
 
     @FXML
     public void moveCameraForward(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, -TRANSLATION));
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, -TRANSLATION));
+            printCamPos();
+        }
     }
 
     @FXML
     public void moveCameraBackward(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, TRANSLATION));
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, TRANSLATION));
+            printCamPos();
+        }
     }
 
     @FXML
     public void moveCameraLeft(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.circleHorMovePosition(TRANSLATION);
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.circleHorMovePosition(TRANSLATION);
+            printCamPos();
+        }
     }
 
     @FXML
     public void moveCameraRight(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.circleHorMovePosition(-TRANSLATION);
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.circleHorMovePosition(-TRANSLATION);
+            printCamPos();
+        }
     }
 
     @FXML
     public void moveCameraUp(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.circleVerMovePosition(-TRANSLATION);
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.circleVerMovePosition(-TRANSLATION);
+            printCamPos();
+        }
     }
 
     @FXML
     public void moveCameraDown(ActionEvent actionEvent) {
-        scenes.get(currSceneId).camera.circleVerMovePosition(TRANSLATION);
+        if (scenes.size() > 0) {
+            scenes.get(currSceneId).camera.circleVerMovePosition(TRANSLATION);
+            printCamPos();
+        }
+    }
+
+    private void printCamPos() {
+        camPosXTx.setText("x:" + scenes.get(currSceneId).camera.getPosition().x);
+        camPosYTx.setText("y:" + scenes.get(currSceneId).camera.getPosition().y);
+        camPosZTx.setText("z:" + scenes.get(currSceneId).camera.getPosition().z);
     }
 }
