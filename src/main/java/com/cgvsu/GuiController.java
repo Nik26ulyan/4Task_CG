@@ -43,14 +43,6 @@ public class GuiController {
 
     @FXML
     private Canvas canvas;
-
-    private Model mesh = null;
-
-    private Camera camera = new Camera(
-            new Vector3f(0, 00, 100),
-            new Vector3f(0, 0, 0),
-            1.0F, 1, 0.01F, 100);
-
     private Timeline timeline;
 
     @FXML
@@ -66,7 +58,6 @@ public class GuiController {
             double height = canvas.getHeight();
 
             canvas.getGraphicsContext2D().clearRect(0, 0, width, height);
-            camera.setAspectRatio((float) (width / height));
 
             if (scenes.size() != 0) {
                 Scene scene = scenes.get(currSceneId);
@@ -100,7 +91,7 @@ public class GuiController {
         try {
             String fileContent = Files.readString(fileName);
             scenes.add(new Scene(currSceneId + 1, ObjReader.read(fileContent), new Camera(
-                    new Vector3f(0, 00, 100),
+                    new Vector3f(0, 0, 100),
                     new Vector3f(0, 0, 0),
                     1.0F, 1, 0.01F, 100)));
             currSceneId++;
