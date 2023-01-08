@@ -28,7 +28,7 @@ import com.cgvsu.render_engine.Camera;
 
 public class GuiController {
 
-    final private float TRANSLATION = 1F;
+    final private float TRANSLATION = 2F;
     private List<Scene> scenes = new ArrayList<>();
     private int currSceneId = -1;
 
@@ -70,13 +70,7 @@ public class GuiController {
                 RenderEngine.render(canvas.getGraphicsContext2D(), scene);
             }
 
-//            if (mesh != null) {
-//                RenderEngine.render(canvas.getGraphicsContext2D(), scene);
-//            }
         });
-
-//        MouseEvent.
-
         timeline.getKeyFrames().add(frame);
         timeline.play();
     }
@@ -137,12 +131,12 @@ public class GuiController {
 
     @FXML
     public void moveCameraForward(ActionEvent actionEvent) {
-        camera.movePosition(new Vector3f(0, 0, -TRANSLATION));
+        scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, -TRANSLATION));
     }
 
     @FXML
     public void moveCameraBackward(ActionEvent actionEvent) {
-        camera.movePosition(new Vector3f(0, 0, TRANSLATION));
+        scenes.get(currSceneId).camera.movePosition(new Vector3f(0, 0, TRANSLATION));
     }
 
     @FXML
@@ -152,36 +146,16 @@ public class GuiController {
 
     @FXML
     public void moveCameraRight(ActionEvent actionEvent) {
-        camera.circleHorMovePosition(-TRANSLATION);
+        scenes.get(currSceneId).camera.circleHorMovePosition(-TRANSLATION);
     }
 
     @FXML
     public void moveCameraUp(ActionEvent actionEvent) {
-        camera.circleVerMovePosition(-TRANSLATION);
+        scenes.get(currSceneId).camera.circleVerMovePosition(-TRANSLATION);
     }
 
     @FXML
     public void moveCameraDown(ActionEvent actionEvent) {
-        camera.circleVerMovePosition(TRANSLATION);
-    }
-
-    @FXML
-    public void rotateCameraUp(ActionEvent actionEvent) {
-        camera.moveTarget(new Vector3f(0, TRANSLATION, 0));
-    }
-
-    @FXML
-    public void rotateCameraDown(ActionEvent actionEvent) {
-        camera.moveTarget(new Vector3f(0, -TRANSLATION, 0));
-    }
-
-    @FXML
-    public void rotateCameraRight(ActionEvent actionEvent) {
-        camera.moveTarget(new Vector3f(-TRANSLATION, 0, 0));
-    }
-
-    @FXML
-    public void rotateCameraLeft(ActionEvent actionEvent) {
-        camera.moveTarget(new Vector3f(TRANSLATION, 0, 0));
+        scenes.get(currSceneId).camera.circleVerMovePosition(TRANSLATION);
     }
 }

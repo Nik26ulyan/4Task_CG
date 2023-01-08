@@ -34,12 +34,12 @@
         <Menu mnemonicParsing="false" text="Camera Options">
             <MenuItem mnemonicParsing="false" onAction="#moveCameraForward" text="Forward">
                 <accelerator>
-                    <KeyCodeCombination alt="UP" code="W" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                    <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
             <MenuItem mnemonicParsing="false" onAction="#moveCameraBackward" text="Backward">
                 <accelerator>
-                    <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                    <KeyCodeCombination alt="UP" code="X" control="UP" meta="UP" shift="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
             <MenuItem mnemonicParsing="false" onAction="#moveCameraLeft" text="Left">
@@ -54,32 +54,12 @@
             </MenuItem>
             <MenuItem mnemonicParsing="false" onAction="#moveCameraUp" text="Up">
                 <accelerator>
-                    <KeyCodeCombination alt="UP" code="SPACE" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                    <KeyCodeCombination alt="UP" code="W" control="UP" meta="UP" shift="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
             <MenuItem mnemonicParsing="false" onAction="#moveCameraDown" text="Down">
                 <accelerator>
-                    <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                </accelerator>
-            </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#rotateCameraDown" text="RDown">
-                <accelerator>
-                    <KeyCodeCombination alt="UP" code="DOWN" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                </accelerator>
-            </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#rotateCameraUp" text="RUp">
-                <accelerator>
-                    <KeyCodeCombination alt="UP" code="UP" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                </accelerator>
-            </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#rotateCameraLeft" text="RLeft">
-                <accelerator>
-                    <KeyCodeCombination alt="UP" code="LEFT" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                </accelerator>
-            </MenuItem>
-            <MenuItem mnemonicParsing="false" onAction="#rotateCameraRight" text="RRight">
-                <accelerator>
-                    <KeyCodeCombination alt="UP" code="RIGHT" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                    <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="UP" />
                 </accelerator>
             </MenuItem>
         </Menu>
